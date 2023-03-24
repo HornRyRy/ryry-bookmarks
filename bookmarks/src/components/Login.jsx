@@ -4,6 +4,7 @@ import { useState } from "react";
 
 
 function Login({
+
     nickname,
     setNickname,
     email,
@@ -12,10 +13,17 @@ function Login({
     setPassword
 }) {
 
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  })
+
+  const {email, password} = formData
+
   function handleSubmit(e) {
     e.preventDefault();
     const user = {
-      nickname,
+      
       email,
       password,
     };
@@ -33,6 +41,11 @@ function Login({
     });
   }
 
+  const handleChange = (e) =>{
+    const {name, value} = e.target;
+    setFormData({...formData, [name]: value})
+  }
+
   return (
     <div>
     <form onSubmit={handleSubmit}>
@@ -45,7 +58,7 @@ function Login({
         type="text"
         name="email"
         value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={handleChange}
       />
       <div></div>
       <label>Password </label>
@@ -54,10 +67,10 @@ function Login({
         type="password"
         name="password"
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={handleChange}
       />
       <div></div>
-      <input type="submit" value="Register" />
+      <input type="submit" value="Login" />
     </form>
   </div>
   )
