@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Signup from "./components/Signup";
+import { useAutoLoginQuery } from "./services/userApi";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -10,6 +11,9 @@ function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState(null)
+
+  const {data: userRedux = null, isFetching} = useAutoLoginQuery()
+  //24:51 how to incorporate user?
 
   return (
     <div className="App">
