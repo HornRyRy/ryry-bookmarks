@@ -9,11 +9,18 @@ export const userApi = createApi({
     endpoints(builder){
         return{
             autoLogin: builder.query({
-                query: () =>{
-                    ('/me')
-                }
+                query: () =>('/me'),
+                    providesTags: ['User']
+                
             }),
-            providesTags: ['User']
+            createUser: builder.mutation({
+                query: ({...body}) =>({
+                    url: '/signup',
+                    method: 'POST',
+                    body
+                }),
+                invalidatesTags: ['User']
+            })
         }
     }
 })
