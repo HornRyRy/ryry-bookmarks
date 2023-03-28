@@ -1,10 +1,24 @@
 import React from "react";
-
+import { useLogoutUserMutation } from "../services/userApi";
+//import "/App.css"
 
 function NavBar() {
-  return (
-    <div>NavBar</div>
-  )
+
+const [logoutUser, {error}] = useLogoutUserMutation()
+
+function handleLogout(e) {
+
+  logoutUser()
+
 }
 
-export default Navbar;
+  return(
+  <nav>
+    <ul id="navBar">
+      <button onClick={handleLogout}>Logout</button>
+    </ul>
+  </nav>
+  );
+}
+
+export default NavBar;

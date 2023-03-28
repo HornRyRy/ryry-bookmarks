@@ -1,4 +1,3 @@
-
 {
   "name": "chrome-history-extension",
   "description": "Chrome extension that accesses the chrome history API to read the browser history and display it in our own personalized React dashboard",

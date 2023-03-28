@@ -37,7 +37,7 @@ export const userApi = createApi({
                     url: '/logout',
                     method: 'DELETE'
                 }),
-                async onQueryStarted(_, queryFulfilled){
+                async onQueryStarted(_, {queryFulfilled, dispatch}){
                    try{
                        await queryFulfilled
                        dispatch(userApi.util.resetApiState())
@@ -50,7 +50,7 @@ export const userApi = createApi({
     }
 })
 
-export const { useAutoLoginQuery, useCreateUserMutation, useLoginUserMutation } = userApi
+export const { useAutoLoginQuery, useCreateUserMutation, useLoginUserMutation, useLogoutUserMutation } = userApi
 
 //queries subscribe to the store
 //users will send a BODY, so this will be mutation-method other than get
