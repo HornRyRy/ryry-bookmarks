@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useCreateUserMutation } from "../services/userApi";
 
 function Signup({})
 
@@ -8,26 +9,20 @@ function Signup({})
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // object, 2nd argument, as error for now. eg, isfetching, isLoading, etc
+  const [createUser, {error}] = useCreateUserMutation()
+
 
   function handleSubmit(e) {
     e.preventDefault();
+    
     const user = {
       nickname,
       email,
       password,
     };
-    fetch("/users", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(user),
-    }).then((resp) => {
-      if (resp.status === 201) {
-        resp.json().then((user) => setUser(user));
-        console.log("Users post status 201");
-      } else {
-        resp.json().then(console.log("no 201 status"));
-      }
-    });
+    createUser(user)
+
   }
 
   return (
