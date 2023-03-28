@@ -22,11 +22,21 @@ export const userApi = createApi({
                 }),
                 //below lin
                 invalidatesTags: ['User']
+            }),
+            loginUser: builder.mutation({
+                query: ({...body}) =>({
+                    url: '/login',
+                    method: 'POST',
+                    body
+                }),
+                //below lin
+                invalidatesTags: ['User']
             })
         }
     }
 })
 
-export const { useAutoLoginQuery, useCreateUserMutation } = userApi
+export const { useAutoLoginQuery, useCreateUserMutation, useLoginUserMutation } = userApi
 
 //queries subscribe to the store
+//users will send a BODY, so this will be mutation-method other than get

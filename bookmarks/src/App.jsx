@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Signup from "./components/Signup";
+import Login from "./components/Login";
 import { useAutoLoginQuery } from "./services/userApi";
 
 
@@ -29,14 +30,7 @@ function App() {
         </div>
         <div>
           hello there
-        {/* <Login
-            // nickname={nickname}
-            // setNickname={setNickname}
-            // email={email}
-            // setEmail={setEmail}
-            // password={password}
-            // setPassword={setPassword}
-          /> */}
+        <Login />
         </div>
       </div>
 
