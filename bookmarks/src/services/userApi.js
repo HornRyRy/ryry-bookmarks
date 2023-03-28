@@ -31,6 +31,20 @@ export const userApi = createApi({
                 }),
                 //below lin
                 invalidatesTags: ['User']
+            }),
+            logoutUser: builder.mutation({
+                query: () => ({
+                    url: '/logout',
+                    method: 'DELETE'
+                }),
+                async onQueryStarted(_, queryFulfilled){
+                   try{
+                       await queryFulfilled
+                       dispatch(userApi.util.resetApiState())
+                   } catch{
+                    dispatch(userApi.util.invalidateTags(['User']))
+                   }
+                }
             })
         }
     }
