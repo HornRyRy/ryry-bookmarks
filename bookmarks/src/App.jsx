@@ -13,6 +13,8 @@ function App() {
   const {data: userRedux = null, isFetching} = useAutoLoginQuery()
   //24:51 how to incorporate user?
 
+  console.log(userRedux)
+
   return (
     <div className="App">
       

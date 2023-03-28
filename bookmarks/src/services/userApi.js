@@ -29,4 +29,4 @@ export const userApi = createApi({
 
 export const { useAutoLoginQuery, useCreateUserMutation } = userApi
 
-//
+//queries subscribe to the store
