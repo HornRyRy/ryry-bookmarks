@@ -7,9 +7,6 @@ import { useAutoLoginQuery } from "./services/userApi";
 
 function App() {
   const [count, setCount] = useState(0);
-  const [nickname, setNickname] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [user, setUser] = useState(null)
 
   const {data: userRedux = null, isFetching} = useAutoLoginQuery()
@@ -25,14 +22,7 @@ function App() {
       <div>
         <p>hi</p>
         <div>
-          <Signup
-            nickname={nickname}
-            setNickname={setNickname}
-            email={email}
-            setEmail={setEmail}
-            password={password}
-            setPassword={setPassword}
-          />
+          <Signup />
         </div>
         <div>
           hello there

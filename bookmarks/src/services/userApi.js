@@ -9,10 +9,11 @@ export const userApi = createApi({
     endpoints(builder){
         return{
             autoLogin: builder.query({
-                query: () =>('/me'),
+                query: () =>('/authorized'),
                     providesTags: ['User']
                 
             }),
+            //this creates the hook below
             createUser: builder.mutation({
                 query: ({...body}) =>({
                     url: '/signup',
@@ -25,4 +26,6 @@ export const userApi = createApi({
     }
 })
 
-export const { useAutoLoginQuery } = userApi
+export const { useAutoLoginQuery, useCreateUserMutation } = userApi
+
+//

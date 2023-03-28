@@ -1,14 +1,14 @@
 import React from "react";
 import { useState } from "react";
 
-function Signup({
-  nickname,
-  setNickname,
-  email,
-  setEmail,
-  password,
-  setPassword,
-}) {
+function Signup({})
+
+{
+  const [nickname, setNickname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+
   function handleSubmit(e) {
     e.preventDefault();
     const user = {
