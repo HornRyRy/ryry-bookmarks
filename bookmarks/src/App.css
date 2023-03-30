@@ -40,3 +40,19 @@
 .read-the-docs {
   color: #888;
 }
+
+#navBar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#navBar a:hover {
+  background-color: #61dafb;
+  color: black;
+  font-weight: bold;
+
+}

@@ -22,3 +22,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+RYRY dashboard page now possible
+
+TOBY extension - 

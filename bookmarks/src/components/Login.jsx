@@ -1,17 +1,11 @@
 import React from "react";
 import { useState } from "react";
+import { useLoginUserMutation } from "../services/userApi";
+
+//LOGOUT TODO - 
 
 
-
-function Login({
-
-    nickname,
-    setNickname,
-    email,
-    setEmail,
-    password,
-    setPassword
-}) {
+function Login({}) {
 
   const [formData, setFormData] = useState({
     email: "",
@@ -20,6 +14,11 @@ function Login({
 
   const {email, password} = formData
 
+//result gives result from the response
+  const [loginUser, {error, result}] = useLoginUserMutation()
+  console.log(result)
+
+
   function handleSubmit(e) {
     e.preventDefault();
     const user = {
@@ -27,18 +26,21 @@ function Login({
       email,
       password,
     };
-    fetch("/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(user),
-    }).then((resp) => {
-      if (resp.status === 201) {
-        resp.json().then((user) => setUser(user));
-        console.log("Users post status 201");
-      } else {
-        resp.json().then(console.log("no 201 status"));
-      }
-    });
+
+    loginUser(user)
+
+    // fetch("/login", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(user),
+    // }).then((resp) => {
+    //   if (resp.status === 201) {
+    //     resp.json().then((user) => setUser(user));
+    //     console.log("Users post status 201");
+    //   } else {
+    //     resp.json().then(console.log("no 201 status"));
+    //   }
+    // });
   }
 
   const handleChange = (e) =>{
