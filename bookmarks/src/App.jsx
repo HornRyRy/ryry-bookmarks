@@ -1,7 +1,8 @@
 import { useState } from "react";
-import "./App.css";
 import { useAutoLoginQuery } from "./services/userApi";
 import { Routes, Route } from "react-router-dom"
+import "./App.css";
+
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
