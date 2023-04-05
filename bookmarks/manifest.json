@@ -11,7 +11,16 @@
   "action": {
     "default_title": "Ryry's Bookmarks",
     "default_popup": "index.html"
-  }
+  },
+
+  "host_permissions":[
+    "https://developer.chrome.com/*"
+  ],
+
+  "permissions":[
+    "activeTab", "tabs", "tabGroups", "history"
+  ]
+
 }
 
   
