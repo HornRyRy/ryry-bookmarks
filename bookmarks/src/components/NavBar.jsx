@@ -1,5 +1,6 @@
 import React from "react";
 import { useLogoutUserMutation } from "../services/userApi";
+import { Link } from 'react-router-dom';
 //import "/App.css"
 
 function NavBar() {
@@ -13,8 +14,11 @@ function handleLogout(e) {
 }
 
   return(
-  <nav>
+  <nav id="bar">
     <ul id="navBar">
+      <Link to="/signup">Signup</Link>
+      <Link to="/">Login</Link>
+      <Link to="/history">History</Link>
       <button onClick={handleLogout}>Logout</button>
     </ul>
   </nav>
