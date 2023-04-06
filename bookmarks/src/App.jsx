@@ -7,6 +7,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import History from "./components/History";
+import Favorites from "./components/Favorites";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -25,6 +26,7 @@ function App() {
         <Route path='/' element={<Login /> } />
         <Route path='/signup' element={<Signup /> } />
         <Route path='/history' element={<History />} />
+        <Route path='favorites' element={<Favorites />} />
       </Routes>
 
     </div>
