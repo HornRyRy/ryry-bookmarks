@@ -1,8 +1,7 @@
 /*global chrome*/
 import React from "react";
 import { useState, useEffect } from "react";
-
-
+import HistoryItem from "./HistoryItem";
 
 const dummyHistory = [
   "https://imgur.com/",
@@ -16,22 +15,25 @@ const dummyHistory = [
   "https://excalidraw.com/",
   "https://www.wikipedia.org/",
   "https://www.oed.com/",
+];
 
-
-]
+const [historyUrl, setHistoryUrl] = useState("");
 
 const HistoryList = () => {
   useEffect(() => {
-
-
-    console.log(dummyHistory)
-
+    console.log(dummyHistory);
   }, []);
 
+  const renderHistory = dummyHistory.map((url) => {
+    return <HistoryItem url={historyUrl} />;
+  });
 
-  
-
-  return <div>History List</div>;
-}
+  return (
+    <div>
+      <h3>History List</h3>
+      {renderHistory}
+    </div>
+  );
+};
 
 export default HistoryList;

@@ -1,8 +1,8 @@
 import React from 'react'
 
-function HistoryItem() {
+function HistoryItem(url) {
   return (
-    <div>History Item</div>
+    <div>History Item of {url}</div>
   )
 }
 
