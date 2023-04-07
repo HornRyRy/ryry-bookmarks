@@ -6,24 +6,24 @@ Rails.application.routes.draw do
   resources :history_pages
   resources :history_lists
   resources :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
 
-  get '/hello', to: 'application#hello_world'
-
-  get '/users', to: 'users#index'
+ #history
+ get '/history', to: "history_list#index"
   
-  get '/user', to: 'users#destroy'
-
+  #auth
+  get '/authorized', to: "users#show"
+  
   post "/login", to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
 
-  get '/authorized', to: "users#show"
+  get '/users', to: 'users#index'
+  get '/user', to: 'users#destroy'
 
   #signup 
   post "/signup", to: "users#create"
 
+  #dummyCode
+  get '/hello', to: 'application#hello_world'
 
 end
