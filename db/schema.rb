@@ -10,9 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_23_224423) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_07_210553) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favorites", force: :cascade do |t|
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "galleries", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "preview_pic"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "gallery_favorites", force: :cascade do |t|
+    t.bigint "gallery_id", null: false
+    t.bigint "favorite_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["favorite_id"], name: "index_gallery_favorites_on_favorite_id"
+    t.index ["gallery_id"], name: "index_gallery_favorites_on_gallery_id"
+  end
+
+  create_table "gallery_lists", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "history_lists", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "history_pages", force: :cascade do |t|
+    t.string "name"
+    t.string "preview_pic_url"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "nickname"
@@ -22,4 +64,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_23_224423) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "gallery_favorites", "favorites"
+  add_foreign_key "gallery_favorites", "galleries"
 end

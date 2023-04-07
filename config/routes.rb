@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :gallery_favorites
+  resources :favorites
+  resources :galleries
+  resources :gallery_lists
+  resources :history_pages
+  resources :history_lists
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

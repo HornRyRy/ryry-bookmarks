@@ -1,0 +1,2 @@
+class GalleryFavoritesController < ApplicationController
+end
