@@ -2,7 +2,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-cons
+
 
 const dummyHistory = [
   "https://imgur.com/",
