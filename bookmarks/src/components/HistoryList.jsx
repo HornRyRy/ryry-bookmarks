@@ -80,7 +80,7 @@ const HistoryList = () => {
   }, []);
 
   const renderHistory = dummyHistory.map((hist) => {
-    return <HistoryItem url={hist.url} />;
+    return <HistoryItem key={hist.id} url={hist.url} />;
   });
 
   return (

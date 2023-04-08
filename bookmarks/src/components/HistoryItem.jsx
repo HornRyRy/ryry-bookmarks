@@ -2,14 +2,14 @@ import React from 'react'
 
 function HistoryItem({url}) {
 
-  functionhandleCatChange = (e) =>{
-    
+  const handleCategoryChange = (e) =>{
+    setCategory(e.target.value)
   }
 
   return (
     <div>
       {url}
-      <select></select>
+      <select onChange={handleCategoryChange}></select>
       </div>
   )
 }
