@@ -1,6 +1,6 @@
 import React from 'react'
 
-function HistoryItem(url) {
+function HistoryItem({url}) {
   return (
     <div>History Item of {url}</div>
   )
