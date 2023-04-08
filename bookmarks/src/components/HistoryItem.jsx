@@ -1,8 +1,16 @@
 import React from 'react'
 
 function HistoryItem({url}) {
+
+  functionhandleCatChange = (e) =>{
+    
+  }
+
   return (
-    <div>History Item of {url}</div>
+    <div>
+      {url}
+      <select></select>
+      </div>
   )
 }
 
