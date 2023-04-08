@@ -1,0 +1,38 @@
+{
+  "index.css": {
+    "file": "assets/index-f4fe9be6.css",
+    "src": "index.css"
+  },
+  "index.html": {
+    "css": [
+      "assets/index-f4fe9be6.css"
+    ],
+    "file": "assets/index-2854aa96.js",
+    "isEntry": true,
+    "src": "index.html"
+  },
+    "name": "Ryry's Bookmarks",
+    "description": "Chrome extension that helps organize user favorites.",
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "icons":{
+      "16": "assets/ryry-icon.png",
+      "48": "assets/ryry-icon.png",
+      "128": "assets/ryry-icon.png"
+    },
+    "action": {
+      "default_title": "Ryry's Bookmarks",
+      "default_popup": "index.html"
+    },
+  
+    "host_permissions":[
+      "https://developer.chrome.com/*"
+    ],
+  
+    "permissions":[
+      "activeTab", "tabs", "tabGroups", "history"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    }
+}

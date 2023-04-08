@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useAutoLoginQuery } from "./services/userApi";
+import { Routes, Route } from "react-router-dom"
 import "./App.css";
+
 import Signup from "./components/Signup";
 import Login from "./components/Login";
-import { useAutoLoginQuery } from "./services/userApi";
 import NavBar from "./components/NavBar";
-import { Routes, Route } from "react-router-dom"
+import HistoryList from "./components/HistoryList";
+import Favorites from "./components/Favorites";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -17,16 +20,15 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Ryry's Bookmarks</h1>
       <NavBar />
-      <div>
-        <p>Hello there</p>
-      </div>
-      <div>
-        <Signup />
-      </div>
-      <div>
-        <Login />
-      </div>
+      <Routes>
+        <Route path='/' element={<Login /> } />
+        <Route path='/signup' element={<Signup /> } />
+        <Route path='/history' element={<HistoryList />} />
+        <Route path='favorites' element={<Favorites />} />
+      </Routes>
+
     </div>
   );
 }

@@ -1,0 +1,2 @@
+class HistoryPage < ApplicationRecord
+end

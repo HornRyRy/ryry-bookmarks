@@ -1,6 +1,6 @@
 {
   "name": "Ryry's Bookmarks",
-  "description": "Chrome extension that accesses the chrome history API to read the browser history, and manages the user's favorite sites.",
+  "description": "Chrome extension that helps organize user favorites.",
   "version": "1.0.0",
   "manifest_version": 3,
   "icons":{
@@ -11,7 +11,16 @@
   "action": {
     "default_title": "Ryry's Bookmarks",
     "default_popup": "index.html"
-  }
+  },
+
+  "host_permissions":[
+    "https://developer.chrome.com/*"
+  ],
+
+  "permissions":[
+    "activeTab", "tabs", "tabGroups", "history"
+  ]
+
 }
 
   

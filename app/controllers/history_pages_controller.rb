@@ -1,0 +1,2 @@
+class HistoryPagesController < ApplicationController
+end

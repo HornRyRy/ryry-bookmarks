@@ -1,0 +1,2 @@
+class GalleryList < ApplicationRecord
+end

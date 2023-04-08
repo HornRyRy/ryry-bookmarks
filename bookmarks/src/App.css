@@ -44,10 +44,11 @@
 #navBar a {
   float: left;
   display: block;
-  color: #f2f2f2;
+  color: #000000;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  
 }
 
 #navBar a:hover {
@@ -55,4 +56,8 @@
   color: black;
   font-weight: bold;
 
+}
+
+#bar {
+  background-color: #86a7b6;
 }
