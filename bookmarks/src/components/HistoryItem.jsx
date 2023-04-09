@@ -9,7 +9,11 @@ function HistoryItem({url}) {
   return (
     <div>
       {url}
-      <select onChange={handleCategoryChange}></select>
+      <div></div>
+      <select onChange={handleCategoryChange}>
+        <option value="select-a-category">Select a Category</option>
+      </select>
+      
       </div>
   )
 }
