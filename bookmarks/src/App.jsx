@@ -12,6 +12,7 @@ import Favorites from "./components/Favorites";
 function App() {
   const [count, setCount] = useState(0);
   const [user, setUser] = useState(null);
+  const [categories, setCategories] = useState(["uncategorized"]);
 
   const { data: userRedux = null, isFetching } = useAutoLoginQuery();
   //24:51 how to incorporate user?
@@ -26,7 +27,7 @@ function App() {
         <Route path='/' element={<Login /> } />
         <Route path='/signup' element={<Signup /> } />
         <Route path='/history' element={<HistoryList />} />
-        <Route path='favorites' element={<Favorites />} />
+        <Route path='favorites' element={<Favorites categories={categories} setCategories={setCategories} />} />
       </Routes>
 
     </div>

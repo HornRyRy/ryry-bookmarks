@@ -70,8 +70,9 @@ const dummyHistory = [
   },
 ];
 
+
 const HistoryList = () => {
-  const [category, setCategory] = useState("Uncategorized");
+
 
   useEffect(() => {
     console.log(dummyHistory);
@@ -82,8 +83,7 @@ const HistoryList = () => {
       <HistoryItem
         key={hist.id}
         url={hist.url}
-        category={category}
-        setCategory={setCategory}
+
       />
     );
   });

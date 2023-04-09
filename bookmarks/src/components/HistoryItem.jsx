@@ -1,3 +1,4 @@
+//import { trackForMutations } from '@reduxjs/toolkit/dist/immutableStateInvariantMiddleware'
 import React from 'react'
 
 function HistoryItem({url}) {
@@ -12,6 +13,8 @@ function HistoryItem({url}) {
       <div></div>
       <select onChange={handleCategoryChange}>
         <option value="select-a-category">Select a Category</option>
+
+
       </select>
       
       </div>
