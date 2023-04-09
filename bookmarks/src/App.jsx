@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAutoLoginQuery } from "./services/userApi";
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import Signup from "./components/Signup";
@@ -24,12 +24,16 @@ function App() {
       <h1>Ryry's Bookmarks</h1>
       <NavBar />
       <Routes>
-        <Route path='/' element={<Login /> } />
-        <Route path='/signup' element={<Signup /> } />
-        <Route path='/history' element={<HistoryList />} />
-        <Route path='favorites' element={<Favorites categories={categories} setCategories={setCategories} />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/history" element={<HistoryList />} />
+        <Route
+          path="favorites"
+          element={
+            <Favorites categories={categories} setCategories={setCategories} />
+          }
+        />
       </Routes>
-
     </div>
   );
 }
