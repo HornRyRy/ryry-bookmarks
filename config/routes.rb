@@ -26,4 +26,10 @@ Rails.application.routes.draw do
   #dummyCode
   get '/hello', to: 'application#hello_world'
 
+  #favorites
+
+  get '/favorites', to "favorites#index"
+  post '/favorites', to "favorites#create"
+  delete '/favorites', to "favorites#destroy"
+
 end
