@@ -1,2 +1,3 @@
 class Gallery < ApplicationRecord
+    
 end

@@ -1,3 +1,3 @@
 class FavoriteSerializer < ActiveModel::Serializer
-  attributes :id, :url
+  attributes :id, :url, :category
 end
