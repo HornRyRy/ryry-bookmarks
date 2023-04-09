@@ -3,6 +3,6 @@ class User < ApplicationRecord
 
     ##email uniqueness check
 
-    has_many :galleries, dependent: :destroy
+    has_many :galleries, through: :gallery_favorites, dependent: :destroy
 
 end

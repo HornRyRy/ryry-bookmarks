@@ -14,7 +14,7 @@ end
 
 def index
     users = User.all
-    render json: users, status: :ok
+    render json: users, include: :favorites, status: :ok
 end
 
 def create
