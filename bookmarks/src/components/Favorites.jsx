@@ -33,35 +33,70 @@ function Favorites() {
     setFavForm({ ...favForm, [e.target.name]: e.target.value });
   };
 
-  const handleFavoriteSubmit = (e) => {
-    e.preventDefault();
-  };
-
+  
   // GET Favorites
-
+  
   const [myFavorites, setMyFavorites] = useState([])
-
+  
   useEffect(() => {
     fetch(`api/favorites`).then((res) => {
       if (res.ok) {
         res.json().then((data) => setMyFavorites(data));
         console.log("favorites fetch")
+        
       } else {
         console.log("errors -favorites fetch");
         // res.json().then(json => setErrors(json["errors"]))
       }
     });
   }, []);
-
+  
   const renderMyFavorites = myFavorites.map(favorite =>{
     <FavoriteCard key={favorite.id} favorite={favorite}/>
   })
-
+  
   // UPDATE Favorites
-
+  
+  const onUpdate = (favoriteObj) => {
+    const config ={
+      method: "PATCH",
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(favoriteObj)
+      
+    }
+    fetch(`api/favorites/${favoriteObj.id}`, config)
+    .then((res) => res.json())
+    .then(data => {
+      const updatedFavorites = myFavorites.map(fav => fav.id === data.id ? data : fav(updatedFavorites))
+    })
+    
+    
+  }
+  
   // CREATE Favorites
-
+  
+  const handleFavoriteSubmit = (e) => {
+    e.preventDefault();
+    const config = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(favForm)
+    }
+  };
+  
+  
   // DELETE Favorites
+
+  const onDelete = (favoriteObj) =>{
+    setMyFavorites(myFavorites.filter(fav => fav.id !== favoriteObj.id))
+
+    const config = {
+      method: "DELETE"
+    }
+    fetch(`api/favorites/${favoriteObj.id}`, config)
+
+  }
+
 
 
   // GET GALLERIES (aka categories)
@@ -134,6 +169,7 @@ function Favorites() {
       <div>
         <h3>Existing Favorites</h3>
       </div>
+      {renderMyFavorites}
     </div>
   );
 }
