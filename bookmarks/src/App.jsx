@@ -12,7 +12,7 @@ import Favorites from "./components/Favorites";
 function App() {
   const [count, setCount] = useState(0);
   const [user, setUser] = useState(null);
-  const [galleries, setGalleries] = useState(["uncategorized", "videos", "development"]);
+  
 
   const { data: userRedux = null, isFetching } = useAutoLoginQuery();
   //24:51 how to incorporate user?
@@ -30,7 +30,7 @@ function App() {
         <Route
           path="favorites"
           element={
-            <Favorites galleries={galleries} setGalleries={setGalleries} />
+            <Favorites  />
           }
         />
       </Routes>

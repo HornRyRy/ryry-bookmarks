@@ -11,6 +11,7 @@ class GalleriesController < ApplicationController
 
     def create
         gallery = Gallery.create!(gallery_params)
+        
         render json: gallery, status: :accepted
     end
 
