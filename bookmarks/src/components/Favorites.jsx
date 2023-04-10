@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react"
 
-function Favorites(categories, setCategories) {
+function Favorites(galleries, setGalleries) {
 
 
   const initialForm = {
@@ -13,6 +13,11 @@ function Favorites(categories, setCategories) {
   const [currentCat, setCurrentCat] = useState()
   const [form, setForm] = useState(initialForm)
 
+  let categories = [
+    { label: "uncategorized"},
+    { label: "articles"},
+    { label: "canned fruit"}
+  ]
 
   function handleSubmit(e){
     e.preventDefault()
@@ -21,7 +26,7 @@ function Favorites(categories, setCategories) {
   }
 
   const handleCatChange = (e) =>{
-    
+    setCurrentCat(e.target.value)
   }
 
 
@@ -29,12 +34,13 @@ function Favorites(categories, setCategories) {
     <div>
       <h3>Favorites</h3>
       <h2>Select a Category</h2>
+      <h3>Current Category is: {currentCat}</h3>
       <form onSubmit={handleSubmit}>
         
         
         <select onChange={handleCatChange}>
       <option value="Select a category">Select a Category</option>
-      {/* {categories.map((cat) => <option value={cat}></option>)} */}
+      {categories.map((cat) => <option value={cat.label} key={cat.label}>{cat.label}</option>)}
         </select>
       </form>
     </div>
