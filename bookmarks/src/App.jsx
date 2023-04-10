@@ -12,7 +12,7 @@ import Favorites from "./components/Favorites";
 function App() {
   const [count, setCount] = useState(0);
   const [user, setUser] = useState(null);
-  const [categories, setCategories] = useState(["uncategorized"]);
+  const [categories, setCategories] = useState(["uncategorized", "videos", "development"]);
 
   const { data: userRedux = null, isFetching } = useAutoLoginQuery();
   //24:51 how to incorporate user?

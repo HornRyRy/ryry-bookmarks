@@ -33,4 +33,12 @@ Rails.application.routes.draw do
   delete '/favorites', to: "favorites#destroy"
   patch '/favorites', to: "favorites#update"
 
+  #galleries
+
+  get '/galleries', to: "galleries#index"
+  post '/galleries', to: "galleries#create"
+  delete '/galleries', to: "galleries#destroy"
+  patch '/galleries', to: "galleries#update"
+
+
 end

@@ -10,6 +10,7 @@ function Favorites(categories, setCategories) {
     
   }
 
+  const [currentCat, setCurrentCat] = useState()
   const [form, setForm] = useState(initialForm)
 
 
@@ -19,7 +20,7 @@ function Favorites(categories, setCategories) {
 
   }
 
-  const handleAddChange = (e) =>{
+  const handleCatChange = (e) =>{
     
   }
 
@@ -27,10 +28,14 @@ function Favorites(categories, setCategories) {
   return (
     <div>
       <h3>Favorites</h3>
-      <h2>Add a Category</h2>
+      <h2>Select a Category</h2>
       <form onSubmit={handleSubmit}>
-        <input
-        onChange={handleAddChange} />
+        
+        
+        <select onChange={handleCatChange}>
+      <option value="Select a category">Select a Category</option>
+      {categories.map((cat) => <option value={cat}></option>)}
+        </select>
       </form>
     </div>
     
