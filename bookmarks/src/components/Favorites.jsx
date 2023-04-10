@@ -34,7 +34,7 @@ function Favorites(categories, setCategories) {
         
         <select onChange={handleCatChange}>
       <option value="Select a category">Select a Category</option>
-      {categories.map((cat) => <option value={cat}></option>)}
+      {/* {categories.map((cat) => <option value={cat}></option>)} */}
         </select>
       </form>
     </div>
