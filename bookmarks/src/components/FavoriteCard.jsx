@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 function FavoriteCard({ favorite }) {
   return (
-    <div>{favorite}</div>
+    <div>{favorite.url}</div>
   )
 }
 

@@ -51,8 +51,8 @@ function Favorites() {
     });
   }, []);
   
-  const renderMyFavorites = myFavorites.map(favorite =>{
-    <FavoriteCard key={favorite.id} favorite={favorite}/>
+  const renderMyFavorites = myFavorites.map(favorite => {
+    return <FavoriteCard key={favorite.id} favorite={favorite}/>
   })
   
   // UPDATE Favorites
@@ -101,16 +101,16 @@ function Favorites() {
 
   // GET GALLERIES (aka categories)
 
-  useEffect(() => {
-    fetch(`/galleries`).then((res) => {
-      if (res.ok) {
-        res.json().then((data) => setMyGalleries(data));
-      } else {
-        console.log("errors -galleries fetch");
-        // res.json().then(json => setErrors(json["errors"]))
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   fetch(`/galleries`).then((res) => {
+  //     if (res.ok) {
+  //       res.json().then((data) => setMyGalleries(data));
+  //     } else {
+  //       console.log("errors -galleries fetch");
+  //       // res.json().then(json => setErrors(json["errors"]))
+  //     }
+  //   });
+  // }, []);
 
   function handleCategorySubmit(e) {
     e.preventDefault();

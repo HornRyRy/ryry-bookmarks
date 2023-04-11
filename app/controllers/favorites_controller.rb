@@ -4,6 +4,7 @@ class FavoritesController < ApplicationController
     #link up your user id categories
 
     def index
+        ##TODO - need current user's favorites
         favorites = Favorite.all
         render json: favorites, status: :ok
     end

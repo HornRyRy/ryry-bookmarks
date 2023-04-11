@@ -10,6 +10,7 @@ class GalleriesController < ApplicationController
     end
 
     def create
+        ## use logged in user to create current user gallery relationship
         gallery = Gallery.create!(gallery_params)
         
         render json: gallery, status: :accepted

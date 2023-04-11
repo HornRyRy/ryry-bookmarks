@@ -5,10 +5,7 @@ class ApplicationController < ActionController::API
   ##errorhandling TODO
   ##authorize TODO
 
-    def hello_world
-      session[:count] = (session[:count] || 0) + 1
-      render json: { count: session[:count] }
-    end
+
 
     #instance variable to be inherited by children
     def current_user

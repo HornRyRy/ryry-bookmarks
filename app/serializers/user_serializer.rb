@@ -1,4 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
   attributes :id, :nickname, :email, :password_digest
-   has_many :galleries
+   # need foreign key for this relationship
+  #has_many :galleries
 end
