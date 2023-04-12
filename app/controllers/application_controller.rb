@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::API
     include ActionController::Cookies
 
+    #before action
+
 
   ##errorhandling TODO
   ##authorize TODO

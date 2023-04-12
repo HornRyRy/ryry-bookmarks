@@ -5,14 +5,16 @@ class GalleriesController < ApplicationController
     end
 
     def index
-        galleries = Gallery.all
+        galleries = current_user.galleries            #not .all
+        
         render json: galleries, status: :ok
     end
 
     def create
         ## use logged in user to create current user gallery relationship
-        gallery = Gallery.create!(gallery_params)
+        user = current_user
         
+        gallery = user.galleries.create!(gallery_params)  #method of galleries FYI
         render json: gallery, status: :accepted
     end
 
@@ -28,6 +30,6 @@ class GalleriesController < ApplicationController
 
     private
     def gallery_params
-        params.permit(:name, :description, :"preview_pic")
+        params.permit(:name, :description, :preview_pic, :user_id)
     end
 end
