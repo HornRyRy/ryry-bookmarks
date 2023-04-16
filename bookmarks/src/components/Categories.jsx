@@ -2,11 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 function Categories() {
-  let categories = [
-    { label: "uncategorized" },
-    { label: "articles" },
-    { label: "canned fruit" },
-  ];
+
 
   const initialCatForm = {
     name: "",
@@ -49,9 +45,7 @@ function Categories() {
   };
 
   
-  const handleCatChange = (e) => {
-    setCurrentCat(e.target.value);
-  };
+
 
   const handleAddCategory = (e) => {
     setCatForm({ ...catForm, [e.target.name]: e.target.value });
@@ -63,16 +57,7 @@ function Categories() {
       <h2>Select a Category</h2>
       <h3>Current Category is: {currentCat}</h3>
       <form onSubmit={handleCategorySubmit}>
-        <select onChange={handleCatChange}>
-          <option name="dropDown" value="Select a category">
-            Select a Category
-          </option>
-          {categories.map((cat) => (
-            <option value={cat.label} key={cat.label}>
-              {cat.label}
-            </option>
-          ))}
-        </select>
+
 
         <div>- - - - - - </div>
 

@@ -3,10 +3,20 @@ import { useState } from "react";
 import FavoriteCard from "./FavoriteCard";
 
 function Favorites() {
+
+
+  let categories = [
+    { label: "uncategorized" },
+    { label: "articles" },
+    { label: "canned fruit" },
+  ];
+
+
   const initialForm = {
     catName: "",
     description: "",
   };
+
 
 
   const [form, setForm] = useState(initialForm);
@@ -90,6 +100,9 @@ function Favorites() {
 
   }
 
+  const handleCatChange = (e) => {
+    setCurrentCat(e.target.value);
+  };
 
   return (
     <div>
@@ -99,10 +112,19 @@ function Favorites() {
       <form onSubmit={handleFavoriteSubmit}>
         <h3>Add Favorites Here</h3>
         <input type="text" name="url" placeholder="paste url here" />
-        <div>
-          <input type="text" name="category" placeholder="categoy" />
-        </div>
-        <button type="submit">Add Favorite</button>
+
+        <select onChange={handleCatChange}>
+          <option name="dropDown" value="Select a category">
+            Select a Category
+          </option>
+          {categories.map((cat) => (
+            <option value={cat.label} key={cat.label}>
+              {cat.label}
+            </option>
+          ))}
+        </select>
+            <div></div>
+          <button type="submit">Add Favorite</button>
       </form>
 
       <div>
