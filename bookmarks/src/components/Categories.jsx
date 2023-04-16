@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 function Categories() {
-
   let categories = [
     { label: "uncategorized" },
     { label: "articles" },
@@ -12,12 +11,12 @@ function Categories() {
   const initialCatForm = {
     name: "",
     description: "",
-    previewPic: ""
-  }
-  
-  const [catForm, setCatForm] = useState(initialCatForm)
+    previewPic: "",
+  };
+
+  const [catForm, setCatForm] = useState(initialCatForm);
   const [currentCat, setCurrentCat] = useState();
-  const [userCategories, setUserCategories] = useState([])
+  const [userCategories, setUserCategories] = useState([]);
 
   // GET Categories
 
@@ -25,8 +24,7 @@ function Categories() {
     fetch(`api/galleries`).then((res) => {
       if (res.ok) {
         res.json().then((data) => setUserCategories(data));
-        console.log("galleries/categories fetch")
-        
+        console.log("galleries/categories fetch");
       } else {
         console.log("errors -galleries/categories fetch");
         // res.json().then(json => setErrors(json["errors"]))
@@ -40,18 +38,22 @@ function Categories() {
     e.preventDefault();
     const config = {
       method: `POST`,
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(catForm)  // define cat form
-    }
-  }
-
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(catForm), // define cat form
+    };
+    fetch('/api/galleries', config)
+    .then((data) => {
+      setUserCategories(...userCategories, data)
+      
+    })
+  };
 
   const handleCatChange = (e) => {
     setCurrentCat(e.target.value);
   };
 
   const handleAddCategory = (e) => {
-    setCatForm({...catForm, [e.target.name]: e.target.value})
+    setCatForm({ ...catForm, [e.target.name]: e.target.value });
   };
 
   return (
@@ -76,20 +78,21 @@ function Categories() {
         <input
           onChange={handleAddCategory}
           type="text"
-          name="description"
-          placeholder="description of category"
-          value= {catForm.description}
-        />
-        <div></div>
-        <input
-          onChange={handleAddCategory}
-          type="text"
           name="name"
           placeholder="name of category"
           value={catForm.name}
         />
+
         <div></div>
-        <input 
+        <input
+          onChange={handleAddCategory}
+          type="text"
+          name="description"
+          placeholder="description of category"
+          value={catForm.description}
+        />
+        <div></div>
+        <input
           onChange={handleAddCategory}
           type="text"
           name="previewPic"
