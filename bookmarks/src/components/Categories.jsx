@@ -8,7 +8,14 @@ function Categories() {
     { label: "articles" },
     { label: "canned fruit" },
   ];
+
+  const initialCatForm = {
+    name: "",
+    description: "",
+    previewPic: ""
+  }
   
+  const [catForm, setCatForm] = useState(initialCatForm)
   const [currentCat, setCurrentCat] = useState();
   const [userCategories, setUserCategories] = useState([])
 
@@ -29,18 +36,23 @@ function Categories() {
 
   // CREATE Categories
 
-  
-
-
-  function handleCategorySubmit(e) {
+  const handleCategorySubmit = (e) => {
     e.preventDefault();
+    const config = {
+      method: `POST`,
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(catForm)  // define cat form
+    }
   }
+
 
   const handleCatChange = (e) => {
     setCurrentCat(e.target.value);
   };
 
-  const handleAddCategory = (e) => {};
+  const handleAddCategory = (e) => {
+    setCatForm({...catForm, [e.target.name]: e.target.value})
+  };
 
   return (
     <div>
@@ -59,13 +71,32 @@ function Categories() {
           ))}
         </select>
 
+        <div>- - - - - - </div>
+
+        <input
+          onChange={handleAddCategory}
+          type="text"
+          name="description"
+          placeholder="description of category"
+          value= {catForm.description}
+        />
         <div></div>
         <input
           onChange={handleAddCategory}
           type="text"
-          name="category_description"
-          placeholder="description of category"
+          name="name"
+          placeholder="name of category"
+          value={catForm.name}
         />
+        <div></div>
+        <input 
+          onChange={handleAddCategory}
+          type="text"
+          name="previewPic"
+          placeholder="preview pic url"
+          value={catForm.previewPic}
+        />
+        <div></div>
         <button type="submit">Add Category</button>
       </form>
     </div>

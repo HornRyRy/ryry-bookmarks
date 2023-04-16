@@ -11,10 +11,7 @@ function Favorites() {
 
   const [form, setForm] = useState(initialForm);
 
-  const [myGalleries, setMyGalleries] = useState();
-
-
-
+ 
   // Fav State
 
   const initialFavForm = {
@@ -92,22 +89,6 @@ function Favorites() {
     fetch(`api/favorites/${favoriteObj.id}`, config)
 
   }
-
-
-
-  // GET GALLERIES (aka categories)
-
-  // useEffect(() => {
-  //   fetch(`/galleries`).then((res) => {
-  //     if (res.ok) {
-  //       res.json().then((data) => setMyGalleries(data));
-  //     } else {
-  //       console.log("errors -galleries fetch");
-  //       // res.json().then(json => setErrors(json["errors"]))
-  //     }
-  //   });
-  // }, []);
-
 
 
   return (
