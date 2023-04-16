@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import HistoryList from "./components/HistoryList";
 import Favorites from "./components/Favorites";
+import Categories from "./components/Categories";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -27,12 +28,8 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/history" element={<HistoryList />} />
-        <Route
-          path="favorites"
-          element={
-            <Favorites  />
-          }
-        />
+        <Route path="/categories" element={<Categories  />} />
+        <Route path="/favorites" element={<Favorites  />} />
       </Routes>
     </div>
   );
