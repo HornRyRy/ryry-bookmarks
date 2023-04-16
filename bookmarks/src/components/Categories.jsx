@@ -48,6 +48,7 @@ function Categories() {
     })
   };
 
+  
   const handleCatChange = (e) => {
     setCurrentCat(e.target.value);
   };
