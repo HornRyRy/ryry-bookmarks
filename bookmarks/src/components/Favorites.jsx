@@ -8,16 +8,12 @@ function Favorites() {
     description: "",
   };
 
-  const [currentCat, setCurrentCat] = useState();
+
   const [form, setForm] = useState(initialForm);
 
   const [myGalleries, setMyGalleries] = useState();
 
-  let categories = [
-    { label: "uncategorized" },
-    { label: "articles" },
-    { label: "canned fruit" },
-  ];
+
 
   // Fav State
 
@@ -112,50 +108,12 @@ function Favorites() {
   //   });
   // }, []);
 
-  function handleCategorySubmit(e) {
-    e.preventDefault();
-  }
 
-  const handleCatChange = (e) => {
-    setCurrentCat(e.target.value);
-  };
-
-  const handleAddCategory = (e) => {};
 
   return (
     <div>
       <h3>Favorites</h3>
-      <h2>Select a Category</h2>
-      <h3>Current Category is: {currentCat}</h3>
-      <form onSubmit={handleCategorySubmit}>
-        <select onChange={handleCatChange}>
-          <option name="dropDown" value="Select a category">
-            Select a Category
-          </option>
-          {categories.map((cat) => (
-            <option value={cat.label} key={cat.label}>
-              {cat.label}
-            </option>
-          ))}
-        </select>
-
-        <div>
-          <input
-            onChange={handleAddCategory}
-            type="text"
-            name="category_name"
-            placeholder="enter new category"
-          />
-        </div>
-
-        <div></div>
-        <input
-          type="text"
-          name="category_description"
-          placeholder="description of category"
-        />
-        <button type="submit">Add Category</button>
-      </form>
+      
 
       <form onSubmit={handleFavoriteSubmit}>
         <h3>Add Favorites Here</h3>
