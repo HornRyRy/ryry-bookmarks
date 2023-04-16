@@ -68,19 +68,24 @@ const dummyHistory = [
     url: "https://www.wikipedia.org/",
     time: 1000,
   },
-]
+];
 
 
 const HistoryList = () => {
 
- 
 
   useEffect(() => {
     console.log(dummyHistory);
   }, []);
 
   const renderHistory = dummyHistory.map((hist) => {
-    return <HistoryItem url={hist.url} />;
+    return (
+      <HistoryItem
+        key={hist.id}
+        url={hist.url}
+
+      />
+    );
   });
 
   return (

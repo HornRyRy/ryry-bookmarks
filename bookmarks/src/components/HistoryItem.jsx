@@ -1,8 +1,23 @@
+//import { trackForMutations } from '@reduxjs/toolkit/dist/immutableStateInvariantMiddleware'
 import React from 'react'
 
 function HistoryItem({url}) {
+
+  const handleCategoryChange = (e) =>{
+    setCategory(e.target.value)
+  }
+
   return (
-    <div>History Item of {url}</div>
+    <div>
+      {url}
+      <div></div>
+      <select onChange={handleCategoryChange}>
+        <option value="select-a-category">Select a Category</option>
+
+
+      </select>
+      
+      </div>
   )
 }
 

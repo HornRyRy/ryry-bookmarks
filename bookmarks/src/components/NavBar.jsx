@@ -20,6 +20,7 @@ function handleLogout(e) {
       <Link to="/">Login</Link>
       <Link to="/history">History</Link>
       <Link to="/favorites">Favorites</Link>
+      <Link to='/categories'>Categories</Link>
       <button onClick={handleLogout}>Logout</button>
     </ul>
   </nav>

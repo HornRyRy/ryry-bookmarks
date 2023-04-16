@@ -3,5 +3,7 @@ class User < ApplicationRecord
 
     ##email uniqueness check
 
+   
+    has_many :galleries
 
 end

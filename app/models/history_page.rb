@@ -1,2 +1,0 @@
-class HistoryPage < ApplicationRecord
-end
