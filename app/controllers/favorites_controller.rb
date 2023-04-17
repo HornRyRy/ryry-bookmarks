@@ -27,7 +27,7 @@ class FavoritesController < ApplicationController
     private
 
     def favorite_params
-        params.permit(:url, :user_id, :gallery_id, :category)
+        params.permit(:url, :user_id, :gallery_id)
     end
 
 end
