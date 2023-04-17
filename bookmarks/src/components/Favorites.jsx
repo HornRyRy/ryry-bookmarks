@@ -5,10 +5,11 @@ import FavoriteCard from "./FavoriteCard";
 function Favorites({userCategories, setUserCategories, updateCatState}) {
 
 
-  let categories = [
+  let dummyCategories = [
     { label: "uncategorized" },
     { label: "articles" },
     { label: "canned fruit" },
+    { label: "sitcoms" }
   ];
 
 
@@ -122,9 +123,9 @@ function Favorites({userCategories, setUserCategories, updateCatState}) {
           <option name="dropDown" value="Select a category">
             Select a Category
           </option>
-          {categories.map((cat) => (
-            <option value={cat.label} key={cat.label}>
-              {cat.label}
+          {userCategories.map((cat) => (
+            <option value={cat.name} key={cat.name}>
+              {cat.name}
             </option>
           ))}
         </select>

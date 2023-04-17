@@ -39,7 +39,9 @@ function Categories({userCategories, setUserCategories, updateCatState}) {
     };
     fetch('/api/galleries', config)
     .then((data) => {
-      setUserCategories(...userCategories, data)
+      const newCategoryState = [...userCategories, data]
+      setUserCategories(newCategoryState)
+      updateCatState(newCategoryState)
       
     })
   };
