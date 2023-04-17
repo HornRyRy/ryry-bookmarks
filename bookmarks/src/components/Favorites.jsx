@@ -85,6 +85,7 @@ function Favorites() {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(favForm)
     }
+    
   };
   
   
@@ -103,6 +104,8 @@ function Favorites() {
   const handleCatChange = (e) => {
     setCurrentCat(e.target.value);
   };
+
+
 
   return (
     <div>
