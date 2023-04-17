@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import FavoriteCard from "./FavoriteCard";
 
-function Favorites() {
+function Favorites({userCategories, setUserCategories}) {
 
 
   let categories = [
@@ -58,6 +58,22 @@ function Favorites() {
     return <FavoriteCard key={favorite.id} favorite={favorite}/>
   })
   
+  
+  // CREATE Favorites
+  
+  const handleFavoriteSubmit = (e) => {
+    e.preventDefault();
+    const config = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(favForm)
+    }
+    fetch('/api/favorites', config)
+    .then((data) =>{
+      setMyFavorites(...myFavorites, data)
+    })
+  };
+  
   // UPDATE Favorites
   
   const onUpdate = (favoriteObj) => {
@@ -73,21 +89,7 @@ function Favorites() {
       const updatedFavorites = myFavorites.map(fav => fav.id === data.id ? data : fav(updatedFavorites))
     })
     
-    
   }
-  
-  // CREATE Favorites
-  
-  const handleFavoriteSubmit = (e) => {
-    e.preventDefault();
-    const config = {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(favForm)
-    }
-    
-  };
-  
   
   // DELETE Favorites
 

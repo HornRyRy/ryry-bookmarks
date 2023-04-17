@@ -12,8 +12,9 @@ import Favorites from "./components/Favorites";
 import Categories from "./components/Categories";
 
 function App() {
-  const [count, setCount] = useState(0);
+  
   const [user, setUser] = useState(null);
+  const [userCategories, setUserCategories] = useState([]);
   
 
   const { data: userRedux = null, isFetching } = useAutoLoginQuery();
@@ -29,8 +30,8 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/history" element={<HistoryList />} />
-        <Route path="/categories" element={<Categories  />} />
-        <Route path="/favorites" element={<Favorites  />} />
+        <Route path="/categories" element={<Categories userCategories={userCategories} setUserCategories={setUserCategories}  />} />
+        <Route path="/favorites" element={<Favorites userCategories={userCategories} setUserCategories={setUserCategories} />} />
       </Routes>
     </div>
   );
