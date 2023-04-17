@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import HistoryList from "./components/HistoryList";
 import Favorites from "./components/Favorites";
+
 import Categories from "./components/Categories";
 
 function App() {
