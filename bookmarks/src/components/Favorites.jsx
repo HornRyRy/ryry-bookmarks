@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import FavoriteCard from "./FavoriteCard";
 
-function Favorites({userCategories, setUserCategories}) {
+function Favorites({userCategories, setUserCategories, updateCatState}) {
 
 
   let categories = [
@@ -128,7 +128,9 @@ function Favorites({userCategories, setUserCategories}) {
             </option>
           ))}
         </select>
+
             <div></div>
+            
           <button type="submit">Add Favorite</button>
       </form>
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-function Categories({userCategories, setUserCategories}) {
+function Categories({userCategories, setUserCategories, updateCatState}) {
 
 
   const initialCatForm = {
@@ -12,7 +12,7 @@ function Categories({userCategories, setUserCategories}) {
 
   const [catForm, setCatForm] = useState(initialCatForm);
   const [currentCat, setCurrentCat] = useState();
-  //const [userCategories, setUserCategories] = useState([]);
+  
 
   // GET Categories
 

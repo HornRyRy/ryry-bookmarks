@@ -17,6 +17,11 @@ function App() {
   const [userCategories, setUserCategories] = useState([]);
   
 
+  function updateCatState(newState){
+    setUserCategories(newState)
+  }
+
+
   const { data: userRedux = null, isFetching } = useAutoLoginQuery();
   //24:51 how to incorporate user?
 
@@ -30,8 +35,8 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/history" element={<HistoryList />} />
-        <Route path="/categories" element={<Categories userCategories={userCategories} setUserCategories={setUserCategories}  />} />
-        <Route path="/favorites" element={<Favorites userCategories={userCategories} setUserCategories={setUserCategories} />} />
+        <Route path="/categories" element={<Categories userCategories={userCategories} setUserCategories={setUserCategories} updateCatState={updateCatState} />} />
+        <Route path="/favorites" element={<Favorites userCategories={userCategories} setUserCategories={setUserCategories} updateCatState={updateCatState} />} />
       </Routes>
     </div>
   );
