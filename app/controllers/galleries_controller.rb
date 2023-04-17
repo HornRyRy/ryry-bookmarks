@@ -30,6 +30,6 @@ class GalleriesController < ApplicationController
 
     private
     def gallery_params
-        params.permit(:name, :description, :preview_pic, :user_id)
+        params.permit(:name, :description, :preview_pic, :user_id, :favorite_id)
     end
 end
