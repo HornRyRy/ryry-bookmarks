@@ -5,7 +5,7 @@ function FavoriteCard({ favorite, onDelete }) {
 
 const handleDeleteFavorite = (e) =>{
   console.log("Delete favorite button clicked")
-  onDelete
+  onDelete(favorite.id)
 
 }
 
