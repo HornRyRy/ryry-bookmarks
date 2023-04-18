@@ -16,6 +16,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [userCategories, setUserCategories] = useState([]);
   
+  
 
   function updateCatState(newState){
     setUserCategories(newState)

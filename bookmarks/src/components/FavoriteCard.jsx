@@ -1,10 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
 
-function FavoriteCard({ favorite }) {
+function FavoriteCard({ favorite, onDelete }) {
 
 const handleDeleteFavorite = (e) =>{
   console.log("Delete favorite button clicked")
+  onDelete
 
 }
 

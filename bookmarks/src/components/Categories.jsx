@@ -11,7 +11,7 @@ function Categories({userCategories, setUserCategories, updateCatState}) {
   };
 
   const [catForm, setCatForm] = useState(initialCatForm);
-  const [currentCat, setCurrentCat] = useState();
+ 
   
 
   // GET Categories
@@ -57,7 +57,7 @@ function Categories({userCategories, setUserCategories, updateCatState}) {
     <div>
       <h3>Categories Route</h3>
       <h2>Select a Category</h2>
-      <h3>Current Category is: {currentCat}</h3>
+      
       <form onSubmit={handleCategorySubmit}>
 
 

@@ -20,8 +20,15 @@ class FavoritesController < ApplicationController
     end
 
     def destroy
-        @favorite.destroy
-        head :no_content
+        # @favorite.destroy
+        # head :no_content
+        favorite= Favorite.find_by(id: params[:id])
+        if favorite
+            favorite.destroy
+            head :no_content
+        else
+            render json: {error: "favorite not found"}, status: :not_found
+        end
     end
 
     private

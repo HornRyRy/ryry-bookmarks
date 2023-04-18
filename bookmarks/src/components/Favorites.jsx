@@ -5,13 +5,6 @@ import FavoriteCard from "./FavoriteCard";
 function Favorites({userCategories, setUserCategories, updateCatState}) {
 
 
-  let dummyCategories = [
-    { label: "uncategorized" },
-    { label: "articles" },
-    { label: "canned fruit" },
-    { label: "sitcoms" }
-  ];
-
 
   const initialForm = {
     catName: "",
@@ -21,7 +14,7 @@ function Favorites({userCategories, setUserCategories, updateCatState}) {
 
 
   const [form, setForm] = useState(initialForm);
-
+  const [currentCat, setCurrentCat] = useState("uncategorized");
  
   // Fav State
 
@@ -55,9 +48,6 @@ function Favorites({userCategories, setUserCategories, updateCatState}) {
     });
   }, []);
   
-  const renderMyFavorites = myFavorites.map(favorite => {
-    return <FavoriteCard key={favorite.id} favorite={favorite}/>
-  })
   
   
   // CREATE Favorites
@@ -93,22 +83,25 @@ function Favorites({userCategories, setUserCategories, updateCatState}) {
   }
   
   // DELETE Favorites
-
+  
   const onDelete = (favoriteObj) =>{
     setMyFavorites(myFavorites.filter(fav => fav.id !== favoriteObj.id))
-
+    
     const config = {
       method: "DELETE"
     }
     fetch(`api/favorites/${favoriteObj.id}`, config)
-
+    
   }
-
+  
   const handleCatChange = (e) => {
     setCurrentCat(e.target.value);
   };
-
-
+  
+  
+  const renderMyFavorites = myFavorites.map(favorite => {
+    return <FavoriteCard key={favorite.id} favorite={favorite} onDelete={onDelete}/>
+  })
 
   return (
     <div>
