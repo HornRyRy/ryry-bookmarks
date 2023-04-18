@@ -85,12 +85,18 @@ function Favorites({userCategories, setUserCategories, updateCatState}) {
   // DELETE Favorites
   
   const onDelete = (favoriteObj) =>{
-    setMyFavorites(myFavorites.filter(fav => fav.id !== favoriteObj.id))
+    
     
     const config = {
-      method: "DELETE"
+      method: "DELETE",
+      headers: {'Content-Type': 'application/json'}
     }
     fetch(`api/favorites/${favoriteObj.id}`, config)
+    .then(res => {
+      if(res.ok){
+        setMyFavorites(myFavorites.filter(fav => fav.id !== favoriteObj.id))
+      }
+    })
     
   }
   
