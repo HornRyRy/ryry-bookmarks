@@ -15,11 +15,11 @@ function App() {
   
   const [user, setUser] = useState(null);
   const [userCategories, setUserCategories] = useState([]);
-  
+
   
 
   function updateCatState(newState){
-    setUserCategories(newState)
+    setUserCategories([...userCategories, newState])
   }
 
 
@@ -36,8 +36,8 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/history" element={<HistoryList />} />
-        <Route path="/categories" element={<Categories userCategories={userCategories} setUserCategories={setUserCategories} updateCatState={updateCatState} />} />
-        <Route path="/favorites" element={<Favorites userCategories={userCategories} setUserCategories={setUserCategories} updateCatState={updateCatState} />} />
+        <Route path="/categories" element={<Categories setUserCategories={setUserCategories} updateCatState={updateCatState} />} />
+        <Route path="/favorites" element={<Favorites userCategories={userCategories} updateCatState={updateCatState} />} />
       </Routes>
     </div>
   );

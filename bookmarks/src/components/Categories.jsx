@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-function Categories({userCategories, setUserCategories, updateCatState}) {
+function Categories({ setUserCategories, updateCatState}) {
 
 
   const initialCatForm = {
@@ -15,6 +15,7 @@ function Categories({userCategories, setUserCategories, updateCatState}) {
   
 
   // GET Categories
+  //this useEffect should be in App and should send down to favs/categories
 
   useEffect(() => {
     fetch(`api/galleries`).then((res) => {
@@ -39,9 +40,8 @@ function Categories({userCategories, setUserCategories, updateCatState}) {
     };
     fetch('/api/galleries', config)
     .then((data) => {
-      const newCategoryState = [...userCategories, data]
-      setUserCategories(newCategoryState)
-      updateCatState(newCategoryState)
+
+      updateCatState(data)
       
     })
   };

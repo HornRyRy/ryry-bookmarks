@@ -120,12 +120,12 @@ function Favorites({userCategories, setUserCategories, updateCatState}) {
         <h3>Add Favorites Here</h3>
         <input type="text" name="url" placeholder="paste url here" />
 
-        <select onChange={handleCatChange}>
+        <select onChange={handleCatChange} value={currentCat}>
           <option name="dropDown" value="Select a category">
             Select a Category
           </option>
           {userCategories.map((cat) => (
-            <option value={cat.name} key={cat.name}>
+            <option value={cat} key={cat.name}>
               {cat.name}
             </option>
           ))}
