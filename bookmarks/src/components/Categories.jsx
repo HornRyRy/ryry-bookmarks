@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-function Categories({ setUserCategories, updateCatState}) {
+function Categories({ setUserCategories, updateCatState, userCategories}) {
 
 
   const initialCatForm = {
@@ -14,20 +14,7 @@ function Categories({ setUserCategories, updateCatState}) {
  
   
 
-  // GET Categories
-  //this useEffect should be in App and should send down to favs/categories
 
-  useEffect(() => {
-    fetch(`api/galleries`).then((res) => {
-      if (res.ok) {
-        res.json().then((data) => setUserCategories(data));
-        console.log("galleries/categories fetch");
-      } else {
-        console.log("errors -galleries/categories fetch");
-        // res.json().then(json => setErrors(json["errors"]))
-      }
-    });
-  }, []);
 
   // CREATE Categories
 

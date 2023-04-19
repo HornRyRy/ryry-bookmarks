@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import FavoriteCard from "./FavoriteCard";
 
-function Favorites({userCategories, setUserCategories, updateCatState}) {
+function Favorites({userCategories, setUserCategories, updateCatState, myFavorites, setMyFavorites}) {
 
 
 
@@ -31,22 +31,7 @@ function Favorites({userCategories, setUserCategories, updateCatState}) {
   };
 
   
-  // GET Favorites
-  
-  const [myFavorites, setMyFavorites] = useState([])
-  
-  useEffect(() => {
-    fetch(`api/favorites`).then((res) => {
-      if (res.ok) {
-        res.json().then((data) => setMyFavorites(data));
-        console.log("favorites fetch")
-        
-      } else {
-        console.log("errors -favorites fetch");
-        // res.json().then(json => setErrors(json["errors"]))
-      }
-    });
-  }, []);
+
   
   
   
