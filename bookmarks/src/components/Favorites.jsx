@@ -51,6 +51,8 @@ function Favorites({userCategories, setUserCategories, updateCatState, myFavorit
   };
   
   // UPDATE Favorites
+
+  //have to update the favorite's gallery-favorite 
   
   const onUpdate = (favoriteObj) => {
     const config ={
@@ -93,7 +95,7 @@ function Favorites({userCategories, setUserCategories, updateCatState, myFavorit
   
   
   const renderMyFavorites = myFavorites.map(favorite => {
-    return <FavoriteCard key={favorite.id} favorite={favorite} onDelete={onDelete}/>
+    return <FavoriteCard key={favorite.id} favorite={favorite} onDelete={onDelete} userCategories={userCategories}/>
   })
 
   return (

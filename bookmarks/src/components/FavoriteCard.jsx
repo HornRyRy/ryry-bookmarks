@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-function FavoriteCard({ favorite, onDelete }) {
+function FavoriteCard({ favorite, onDelete, userCategories }) {
 
 const handleDeleteFavorite = (e) =>{
   console.log("Delete favorite button clicked")
@@ -16,7 +16,7 @@ const handleUpdateFavCategory = (e) =>{
 
   return (
     <div>
-      {favorite.url} 
+      {favorite.url} {favorite.galleries[0]?.name}
       <button type='button' onClick={handleDeleteFavorite}>Delete</button>
       <button type='button' onClick={handleUpdateFavCategory}>Category Change</button>
       </div>

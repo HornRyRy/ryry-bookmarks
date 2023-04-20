@@ -6,11 +6,13 @@ class FavoritesController < ApplicationController
     def index
         ##TODO - need current user's favorites
         favorites = Favorite.all
-        render json: favorites, status: :ok
+        render json: favorites, include:["gallery_favorites", "gallery_favorites.gallery"], status: :ok
     end
 
     def create
-        favorite = Favorite.create!(favorite_params)
+        ##see below -RJH
+        gallery = Gallery.find_by(id: params[:gallery_id])
+        favorite = gallery.favorites.create!(favorite_params)
         render json: favorite, status: :created
     end
 
