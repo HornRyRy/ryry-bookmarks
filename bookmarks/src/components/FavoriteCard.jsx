@@ -1,12 +1,14 @@
 import React from 'react'
 import { useState } from 'react'
+import Favorites from './Favorites'
 
-function FavoriteCard({ favorite, onDelete, userCategories }) {
+function FavoriteCard({ favorite, onDelete, userCategories, handleUrlChange }) {
 
 const handleDeleteFavorite = (e) =>{
   console.log("Delete favorite button clicked")
   onDelete(favorite.id)
 
+  
 }
 
 const handleUpdateFavCategory = (e) =>{
@@ -14,11 +16,19 @@ const handleUpdateFavCategory = (e) =>{
 }
 
 
+
+
   return (
     <div>
-      {favorite.url} {favorite.galleries[0]?.name}
+      {favorite.url} 
+      
+      {/* {favorite.gallery_favorites[0].gallery.name} */}
       <button type='button' onClick={handleDeleteFavorite}>Delete</button>
       <button type='button' onClick={handleUpdateFavCategory}>Category Change</button>
+      <button type='button' onClick={handleUrlChange}>URL change</button>
+      <form onSubmit={handleUrlChange}>
+      <input type="text" name="url" placeholder="Url Change" />
+      </form>
       </div>
   )
 }

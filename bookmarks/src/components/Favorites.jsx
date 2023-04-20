@@ -92,10 +92,25 @@ function Favorites({userCategories, setUserCategories, updateCatState, myFavorit
   const handleCatChange = (e) => {
     setCurrentCat(e.target.value);
   };
+
+  const handleUrlChange = (e) =>{
+    console.log("Url change button clicked")
+    const config ={
+      method: "PATCH",
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(e.url)
+      
+    }
+    fetch(`api/favorites/${e.id}`, config)
+    .then((res) => res.json())
+    .then(data => {
+      const updatedFavorites = myFavorites.map(fav => fav.id === data.id ? data : fav(updatedFavorites))
+    })
+  }
   
   
   const renderMyFavorites = myFavorites.map(favorite => {
-    return <FavoriteCard key={favorite.id} favorite={favorite} onDelete={onDelete} userCategories={userCategories}/>
+    return <FavoriteCard key={favorite.id} favorite={favorite} onDelete={onDelete} userCategories={userCategories} onUpdate={onUpdate} handleUrlChange={handleUrlChange}/>
   })
 
   return (
