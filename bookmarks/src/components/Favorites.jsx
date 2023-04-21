@@ -54,20 +54,21 @@ function Favorites({userCategories, setUserCategories, updateCatState, myFavorit
 
   //have to update the favorite's gallery-favorite 
   
-  const onUpdate = (favoriteObj) => {
-    const config ={
-      method: "PATCH",
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify(favoriteObj)
+  // const onUpdate = (favoriteObj) => {
+  //   const config ={
+  //     method: "PATCH",
+  //     headers: {'Content-Type':'application/json'},
+  //     body: JSON.stringify(favoriteObj)
       
-    }
-    fetch(`api/favorites/${favoriteObj.id}`, config)
-    .then((res) => res.json())
-    .then(data => {
-      const updatedFavorites = myFavorites.map(fav => fav.id === data.id ? data : fav(updatedFavorites))
-    })
+  //   }
+  //   fetch(`api/favorites/${favoriteObj.id}`, config)
+  //   .then((res) => res.json())
+  //   .then(data => {
+  //     // const updatedFavorites = myFavorites.map(fav => fav.id === data.id ? data : fav(updatedFavorites))
+  //     setMyFavorites(...myFavorites, data)
+  //   })
     
-  }
+  // }
   
   // DELETE Favorites
   
@@ -92,25 +93,10 @@ function Favorites({userCategories, setUserCategories, updateCatState, myFavorit
   const handleCatChange = (e) => {
     setCurrentCat(e.target.value);
   };
-
-  const handleUrlChange = (e) =>{
-    console.log("Url change button clicked")
-    const config ={
-      method: "PATCH",
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify(e.url)
-      
-    }
-    fetch(`api/favorites/${e.id}`, config)
-    .then((res) => res.json())
-    .then(data => {
-      const updatedFavorites = myFavorites.map(fav => fav.id === data.id ? data : fav(updatedFavorites))
-    })
-  }
   
   
   const renderMyFavorites = myFavorites.map(favorite => {
-    return <FavoriteCard key={favorite.id} favorite={favorite} onDelete={onDelete} userCategories={userCategories} onUpdate={onUpdate} handleUrlChange={handleUrlChange}/>
+    return <FavoriteCard key={favorite.id} favorite={favorite} onDelete={onDelete} userCategories={userCategories} myFavorites={myFavorites} setMyFavorites={setMyFavorites}/>
   })
 
   return (
